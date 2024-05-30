@@ -1,4 +1,6 @@
+import Dashboard from "../containers/auth/dashboard/dashboard";
 import Login from "../containers/auth/login";
+import Register from "../containers/auth/register";
 
 interface MyObject {
   id: number;
@@ -22,10 +24,10 @@ export const protectedRoutes: MyObject[] = [
   },
   {
     id: 1,
-    title: "SingUp",
-    slug: "signUp",
-    path: "/signUp",
-    // data: <ForgotPassword />,
+    title: "Register",
+    slug: "register",
+    path: "/register",
+    data: <Register />,
     isProtected: false,
     validate: false,
   },
@@ -34,7 +36,7 @@ export const protectedRoutes: MyObject[] = [
     title: "Dashboard",
     slug: "dashboard",
     path: "/",
-    data: "shubham",
+    data: <Dashboard />,
     isProtected: true,
     validate: false,
   },

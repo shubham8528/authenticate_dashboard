@@ -1,8 +1,8 @@
 /* eslint-disable */
 import axios from "axios";
-import { cors } from "../Utils/cors";
 import Auth from "./Auth";
 import { Notyf } from "notyf";
+import { cors } from "../utils/cors";
 const notyf = new Notyf({
   position: {
     x: "center",
@@ -27,6 +27,7 @@ export default class Request {
       let token = Auth.getToken();
       if (headers?.responseType) {
         config.responseType = headers?.responseType;
+        xx;
       }
       config.headers = {
         Authorization: token ? `Bearer ${token}` : "",

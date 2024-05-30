@@ -4,6 +4,12 @@ import Protection from "./routes/protectedRoutes";
 import { protectedRoutes } from "./routes/allRoutes";
 
 function App() {
+  protectedRoutes?.map((item) => {
+    item?.isProtected
+      ? console.log(item?.isProtected, "shubham")
+      : console.log(item?.isProtected, "shubhambisht");
+  });
+  // console.log(protectedRoutes, "");
   return (
     <>
       <Routes>

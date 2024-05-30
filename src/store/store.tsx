@@ -11,8 +11,11 @@ const persistConfig = {
   key: "root",
   storage,
 };
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
+export type RootReducer = ReturnType<typeof rootReducer>;
+const persistedReducer = persistReducer<RootReducer>(
+  persistConfig,
+  rootReducer
+);
 /* ------------- saga Middleware ------------- */
 const sagaMiddleware = createSagaMiddleware();
 

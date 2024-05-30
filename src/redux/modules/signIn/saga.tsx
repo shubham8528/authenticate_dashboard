@@ -2,13 +2,14 @@ import { put, takeLatest } from "@redux-saga/core/effects";
 import React from "react";
 import { authActionTypes } from "./types";
 import HttpApis from "../../../services/HttpApis";
-import { LoginActionSucc } from "./action";
+// import { LoginActionSucc } from "./action";
 import { useNavigate } from "react-router-dom";
+import { SignInActionSucc } from "./action";
 
 /*----------------------Login------------------------*/
-function* isLoginUserAsync(credentials: any): any {
+function* isSignInUserAsync(credentials: any): any {
   try {
-    const result = yield HttpApis.loginApi(credentials.payload)
+    const result = yield HttpApis.SignInApi(credentials.payload)
       .then((res) => {
         // const AlertSetting = {
         //   request: "success",
@@ -25,13 +26,13 @@ function* isLoginUserAsync(credentials: any): any {
       .catch((err) => {
         console.log(err);
       });
-    return yield put(LoginActionSucc(result));
+    return yield put(SignInActionSucc(result));
   } catch (error) {
     console.log(error);
   }
 }
-function* loginWatcher() {
-  yield takeLatest(authActionTypes.LOGIN_REQUEST, isLoginUserAsync);
+function* signInWatcher() {
+  yield takeLatest(authActionTypes.SIGNIN_REQUEST, isSignInUserAsync);
 }
 
-export { loginWatcher };
+export { signInWatcher };

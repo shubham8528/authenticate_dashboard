@@ -1,13 +1,14 @@
+import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Input } from "../../components/inputs/input";
-export default function Login() {
+export default function Register() {
   const { handleChange, loginData, handleCLick } = useAuth();
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-        <form onSubmit={(e) => handleCLick(e, "signUp")}>
+        <form onSubmit={(e) => handleCLick(e, "signIn")}>
+          <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
           {loginData?.map((item: any) => (
             <div className="mb-6">
               <label
@@ -32,10 +33,10 @@ export default function Login() {
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Sign In
+              Sign Up
             </button>
-            <a href="/Register" className="text-sky-400 font-size: 0.75rem">
-              Register
+            <a href="/Login" className="text-sky-400 font-size: 0.75rem">
+              back to login
             </a>
           </div>
         </form>

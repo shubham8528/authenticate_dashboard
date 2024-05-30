@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { authActionTypes } from "./types";
 
 /*--------------LoginAction----------------*/
@@ -10,7 +11,7 @@ export const LoginActionReq = (credentials: any) => {
 export const LoginActionSucc = (response: any) => {
   return {
     type: authActionTypes.LOGIN_SUCCESS,
-    payload: response,
+    payload: response?.data,
   };
 };
 export const LoginActionFail = () => {
